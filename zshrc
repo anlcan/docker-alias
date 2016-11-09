@@ -3,7 +3,7 @@
 # ------------------------------------
 
 # re source aliases
-dsource() {curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;}
+dsource() { curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias; }
 
 # Get latest container ID
 alias dl="docker ps -l -q"
@@ -30,7 +30,7 @@ alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
 
 # Execute interactive container sh with name
-desh(){docker exec -it $(docker ps | grep $1 | awk '{print $1}') sh;}
+desh() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') sh; }
 
 # Remove container
 drm() { docker rm -f $(docker ps | grep $1 | awk '{print $1}'); }
@@ -56,7 +56,7 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 alias dser='docker service ls'
 
 # inspect service
-dins() { docker service inspect $1;}
+dins() { docker service inspect $1; }
 
 
 
