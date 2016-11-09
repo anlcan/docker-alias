@@ -2,6 +2,9 @@
 # Docker alias and function
 # ------------------------------------
 
+# re source aliases
+dsource() {curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;}
+
 # Get latest container ID
 alias dl="docker ps -l -q"
 
@@ -26,11 +29,14 @@ alias dki="docker run -i -t -P"
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
 
+# Execute interactive container sh with name
+desh(){docker exec -it $(docker ps | grep $1 | awk '{print $1}') sh;}
+
+# Remove container
+drm() { docker rm -f $(docker ps | grep $1 | awk '{print $1}'); }
+
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
-
-# Remove all containers
-drm() { docker rm $(docker ps -a -q); }
 
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
@@ -44,8 +50,13 @@ dbu() { docker build -t=$1 .; }
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 
-# Bash into running container
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+# DOCKER SWARM
 
-# re source aliases
-dsource() {curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;}
+# show service
+alias dser='docker service ls'
+
+# inspect service
+dins() { docker service inspect $1;}
+
+
+
