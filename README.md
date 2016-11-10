@@ -2,12 +2,12 @@
 
 pull aliases 
 
-   curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;
+      curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;
 
 add this to your bash/sh/zstlk profile
 
-    if [ -f ~/.bash_aliases ]; then
-      . ~/.bash_aliases
+    if [ -f ~/.docker_alias ]; then
+      . ~/.docker_alias
     fi
 
 ## Reference
