@@ -1,6 +1,14 @@
 # Docker alias and functions
 
-Useful command line alias for [Docker](https://www.docker.io/). This is for my usage. I will not accept PRs which **I** don't need (now it's enough for me). If you want your own alias, you can fork this and add your own.  
+pull aliases 
+
+   curl https://raw.githubusercontent.com/anlcan/docker-alias/master/zshrc -o .docker_alias && source .docker_alias;
+
+add this to your bash/sh/zstlk profile
+
+    if [ -f ~/.bash_aliases ]; then
+      . ~/.bash_aliases
+    fi
 
 ## Reference
 
