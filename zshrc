@@ -32,6 +32,9 @@ alias dex="docker exec -i -t"
 # Execute interactive container sh with name
 desh() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') sh; }
 
+# Execute interactive container sh with name
+dlog() { docker logs -f $(docker ps | grep $1 | awk '{print $1}'); }
+
 # Remove container
 drm() { docker rm -f $(docker ps | grep $1 | awk '{print $1}'); }
 
